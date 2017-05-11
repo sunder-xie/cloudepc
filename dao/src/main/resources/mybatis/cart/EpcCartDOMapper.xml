@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.cart.EpcCartDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.cart.EpcCartDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="goods_sn" property="goodsSn" jdbcType="VARCHAR" />
+
+    <result column="part_name" property="partName" jdbcType="VARCHAR" />
+    <result column="oe_number" property="oeNumber" jdbcType="VARCHAR" />
+    <result column="goods_number" property="goodsNumber" jdbcType="INTEGER" />
+
+    <result column="seller_id" property="sellerId" jdbcType="INTEGER" />
+    <result column="seller_telephone" property="sellerTelephone" jdbcType="VARCHAR" />
+    <result column="seller_company_name" property="sellerCompanyName" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, city_id, shop_id, account_id,
+    goods_id, goods_sn, part_name, oe_number,
+    goods_number, seller_id, seller_telephone, seller_company_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_cart
+    where id = #{id,jdbcType=INTEGER}
+    and is_deleted = 'N'
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_cart
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.cart.EpcCartDO"
+          useGeneratedKeys="true" keyProperty="id">
+    insert into epc_cart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn,
+      </if>
+
+      <if test="partName != null" >
+        part_name,
+      </if>
+      <if test="oeNumber != null" >
+        oe_number,
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number,
+      </if>
+
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone,
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name,
+      </if>
+
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null" >
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+
+      <if test="partName != null" >
+        #{partName,jdbcType=VARCHAR},
+      </if>
+      <if test="oeNumber != null" >
+        #{oeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null" >
+        #{goodsNumber,jdbcType=INTEGER},
+      </if>
+
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerTelephone != null" >
+        #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCompanyName != null" >
+        #{sellerCompanyName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.cart.EpcCartDO" >
+    update epc_cart
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+
+      <if test="partName != null" >
+        part_name = #{partName,jdbcType=VARCHAR},
+      </if>
+      <if test="oeNumber != null" >
+        oe_number = #{oeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number = #{goodsNumber,jdbcType=INTEGER},
+      </if>
+
+      <if test="sellerId != null" >
+        seller_id = #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone = #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name = #{sellerCompanyName,jdbcType=VARCHAR},
+      </if>
+
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectCartGoods" resultMap="BaseResultMap" parameterType="com.tqmall.data.epc.bean.entity.cart.EpcCartDO" >
+    select id, goods_number
+    from epc_cart
+    where shop_id = #{shopId,jdbcType=INTEGER}
+    and city_id = #{cityId,jdbcType=INTEGER}
+    and goods_id = #{goodsId,jdbcType=INTEGER}
+    and is_deleted = 'N'
+  </select>
+
+  <select id="selectCartGoodsList" resultMap="BaseResultMap" parameterType="com.tqmall.data.epc.bean.entity.cart.EpcCartDO" >
+    select
+    <include refid="Base_Column_List" />
+    from epc_cart
+    where shop_id = #{shopId,jdbcType=INTEGER}
+    and city_id = #{cityId,jdbcType=INTEGER}
+    and is_deleted = 'N'
+  </select>
+
+  <select id="countCartGoodsAmount" resultType="java.lang.Integer" parameterType="com.tqmall.data.epc.bean.entity.cart.EpcCartDO" >
+    select count(id)
+    from epc_cart
+    where shop_id = #{shopId,jdbcType=INTEGER}
+    and city_id = #{cityId,jdbcType=INTEGER}
+    and is_deleted = 'N'
+  </select>
+
+  <select id="selectGoodsIds" resultType="java.lang.Integer" parameterType="com.tqmall.data.epc.bean.entity.cart.EpcCartDO" >
+    select goods_id
+    from epc_cart
+    where shop_id = #{shopId,jdbcType=INTEGER}
+    and city_id = #{cityId,jdbcType=INTEGER}
+    and is_deleted = 'N'
+  </select>
+
+</mapper>

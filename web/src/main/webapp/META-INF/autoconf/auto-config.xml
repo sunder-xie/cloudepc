@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config description="">
+    <group name="default">
+        <!-- 数据库 -->
+        <property name="jdbc.driverClassName"
+                  defaultValue="com.mysql.jdbc.Driver"
+                  description="JDBC driver class name"/>
+        <property name="jdbc.url"
+                  defaultValue="jdbc:mysql://127.0.0.1:3306/cloudepc?characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"
+                  description="JDBC URL"/>
+        <property name="jdbc.username" defaultValue="root"
+                  description="JDBC username"/>
+        <property name="jdbc.password" defaultValue="root"
+                  description="JDBC password"/>
+
+        <!-- dubbo -->
+        <property name="dubbo.application.name" defaultValue="cloudepc"/>
+        <property name="zookeeper.address" defaultValue="127.0.0.1:2182"/>
+        <property name="dubbo.port" defaultValue="20881"/>
+        <property name="dubbo.service.version" defaultValue="1.0.0.daily"/>
+
+        <property name="dubbo.consume.athena.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.search.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.stall.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.uc.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.finance.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.part.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.monk.version" defaultValue="1.0.0.daily"/>
+        <property name="dubbo.consume.holy.version" defaultValue="1.0.0.daily"/>
+
+
+        <property name="dubbo.consume.jindie.version" defaultValue="1.0.0-red-lt.daily"/>
+        <property name="dubbo.jindie.url" defaultValue="dubbo://127.0.0.1:20881"/>
+
+
+        <property name="redis.host" defaultValue="redis://MySQL_Server:root@127.0.0.1:6379/31"
+                  description="redis"/>
+
+        <!-- 前端版本（本地开发：epc-dev，服务器上：epc-release） -->
+        <property name="web.version" defaultValue="epc-release"
+                  description="前端版本"/>
+
+        <property name="vin.search.switch" defaultValue="on"
+                  description="vin码查询次数限制开关"/>
+
+        <property name="verify.switch" defaultValue="on"
+                  description="验证码开关"/>
+
+        <property name="img.path" defaultValue="images/cloudepc/test/"/>
+        <property name="tqmall.oss.bucketName" defaultValue="tqmall-image"/>
+        <property name="tqmall.oss.accesskeyId" defaultValue=""/>
+        <property name="tqmall.oss.accessKeySecret" defaultValue=""/>
+        <property name="tqmall.oss.endpoint" defaultValue="https://oss-cn-hangzhou.aliyuncs.com"/>
+        <property name="tqmall.oss.imgEndpoint" defaultValue="https://img-cn-hangzhou.aliyuncs.com"/>
+        <property name="tqmall.oss.region" defaultValue=""/>
+        <property name="tqmall.oss.regionImg" defaultValue=""/>
+
+        <property name="epc.host.public" defaultValue="https://"/>
+
+        <property name="legend.key.prefix" defaultValue="0d0304d5b"/>
+        <property name="legend.key.suffix" defaultValue="89e9e1348bef7"/>
+
+        <property name="monk.host" defaultValue="https://"/>
+
+        <property name="monk.epc.server.id" defaultValue="1"/>
+
+    </group>
+    <script>
+        <generate template="application.properties.vm"
+                  destfile="/WEB-INF/classes/application.properties"
+                  charset="UTF-8"/>
+    </script>
+</config>

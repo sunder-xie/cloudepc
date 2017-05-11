@@ -1,0 +1,29 @@
+#defaultCountdown {
+  display: block;
+  text-align: center;
+  font-size: 21px;
+  margin-top: 30px;
+}
+
+.countdown_section {
+  display: inline-block;
+  margin-right: 20px;
+  /*float: left;*/
+  text-align: center;
+}
+
+.countdown_amount {
+  display: block;
+  background: #009b6c;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  width: 115px;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 43px;
+  color: #b4dcba;
+  margin-bottom: 5px;
+  font-weight: bold;
+  behavior: url(PIE.htc);
+}

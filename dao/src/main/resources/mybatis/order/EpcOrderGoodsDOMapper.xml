@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.order.EpcOrderGoodsDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.order.EpcOrderGoodsDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="goods_sn" property="goodsSn" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_format" property="goodsFormat" jdbcType="VARCHAR" />
+    <result column="goods_img" property="goodsImg" jdbcType="VARCHAR" />
+    <result column="measure_unit" property="measureUnit" jdbcType="VARCHAR" />
+    <result column="goods_quality" property="goodsQuality" jdbcType="VARCHAR" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="part_name" property="partName" jdbcType="VARCHAR" />
+    <result column="oe_number" property="oeNumber" jdbcType="VARCHAR" />
+    <result column="goods_number" property="goodsNumber" jdbcType="INTEGER" />
+    <result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
+    <result column="sold_price" property="soldPrice" jdbcType="DECIMAL" />
+    <result column="sold_price_amount" property="soldPriceAmount" jdbcType="DECIMAL" />
+    <result column="car_alias" property="carAlias" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, order_id, order_sn, 
+    goods_id, goods_sn, goods_name, goods_format, goods_img, measure_unit, goods_quality, 
+    brand_name, part_name, oe_number, goods_number, goods_price, sold_price, sold_price_amount, 
+    car_alias
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_order_goods
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_order_goods
+    where id = #{id}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderGoodsDO" >
+    insert into epc_order_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsFormat != null" >
+        goods_format,
+      </if>
+      <if test="goodsImg != null" >
+        goods_img,
+      </if>
+      <if test="measureUnit != null" >
+        measure_unit,
+      </if>
+      <if test="goodsQuality != null" >
+        goods_quality,
+      </if>
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="partName != null" >
+        part_name,
+      </if>
+      <if test="oeNumber != null" >
+        oe_number,
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+      <if test="soldPrice != null" >
+        sold_price,
+      </if>
+      <if test="soldPriceAmount != null" >
+        sold_price_amount,
+      </if>
+      <if test="carAlias != null" >
+        car_alias,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId},
+      </if>
+      <if test="goodsSn != null" >
+        #{goodsSn},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName},
+      </if>
+      <if test="goodsFormat != null" >
+        #{goodsFormat},
+      </if>
+      <if test="goodsImg != null" >
+        #{goodsImg},
+      </if>
+      <if test="measureUnit != null" >
+        #{measureUnit},
+      </if>
+      <if test="goodsQuality != null" >
+        #{goodsQuality},
+      </if>
+      <if test="brandName != null" >
+        #{brandName},
+      </if>
+      <if test="partName != null" >
+        #{partName},
+      </if>
+      <if test="oeNumber != null" >
+        #{oeNumber},
+      </if>
+      <if test="goodsNumber != null" >
+        #{goodsNumber},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice},
+      </if>
+      <if test="soldPrice != null" >
+        #{soldPrice},
+      </if>
+      <if test="soldPriceAmount != null" >
+        #{soldPriceAmount},
+      </if>
+      <if test="carAlias != null" >
+        #{carAlias},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderGoodsDO" >
+    update epc_order_goods
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier},
+      </if>
+        gmt_modified = now(),
+      <if test="orderId != null" >
+        order_id = #{orderId},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn},
+      </if>
+      <if test="goodsId != null" >
+        goods_id = #{goodsId},
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn = #{goodsSn},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName},
+      </if>
+      <if test="goodsFormat != null" >
+        goods_format = #{goodsFormat},
+      </if>
+      <if test="goodsImg != null" >
+        goods_img = #{goodsImg},
+      </if>
+      <if test="measureUnit != null" >
+        measure_unit = #{measureUnit},
+      </if>
+      <if test="goodsQuality != null" >
+        goods_quality = #{goodsQuality},
+      </if>
+      <if test="brandName != null" >
+        brand_name = #{brandName},
+      </if>
+      <if test="partName != null" >
+        part_name = #{partName},
+      </if>
+      <if test="oeNumber != null" >
+        oe_number = #{oeNumber},
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number = #{goodsNumber},
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price = #{goodsPrice},
+      </if>
+      <if test="soldPrice != null" >
+        sold_price = #{soldPrice},
+      </if>
+      <if test="soldPriceAmount != null" >
+        sold_price_amount = #{soldPriceAmount},
+      </if>
+      <if test="carAlias != null" >
+        car_alias = #{carAlias},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+
+  <select id="selectByDO" resultMap="BaseResultMap"  parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderGoodsDO" >
+    select
+    <include refid="Base_Column_List" />
+    from epc_order_goods
+   <where>
+       is_deleted = 'N'
+     <if test="creator != null" >
+       and creator = #{creator}
+     </if>
+     <if test="modifier != null" >
+       and modifier = #{modifier}
+     </if>
+     <if test="orderId != null" >
+       and order_id = #{orderId}
+     </if>
+     <if test="orderSn != null" >
+       and order_sn = #{orderSn}
+     </if>
+     <if test="goodsId != null" >
+       and goods_id = #{goodsId}
+     </if>
+     <if test="goodsSn != null" >
+       and goods_sn = #{goodsSn}
+     </if>
+     <if test="goodsName != null" >
+       and goods_name = #{goodsName}
+     </if>
+     <if test="goodsFormat != null" >
+       goods_format = #{goodsFormat}
+     </if>
+     <if test="goodsImg != null" >
+       and goods_img = #{goodsImg}
+     </if>
+     <if test="measureUnit != null" >
+       and measure_unit = #{measureUnit}
+     </if>
+     <if test="goodsQuality != null" >
+       and goods_quality = #{goodsQuality}
+     </if>
+     <if test="brandName != null" >
+       and brand_name = #{brandName}
+     </if>
+     <if test="partName != null" >
+       and part_name = #{partName}
+     </if>
+     <if test="oeNumber != null" >
+       and oe_number = #{oeNumber}
+     </if>
+     <if test="goodsNumber != null" >
+       and goods_number = #{goodsNumber}
+     </if>
+     <if test="goodsPrice != null" >
+       and goods_price = #{goodsPrice}
+     </if>
+     <if test="soldPrice != null" >
+       and sold_price = #{soldPrice}
+     </if>
+     <if test="soldPriceAmount != null" >
+       and sold_price_amount = #{soldPriceAmount}
+     </if>
+   </where>
+  </select>
+
+</mapper>

@@ -1,0 +1,749 @@
+/*公用的css*/
+body {
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+    background: none;
+    color: #8ca5bb;
+    min-width: 1190px;
+}
+
+div {
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    color: #c1d2e1 !important;
+}
+
+input:-moz-placeholder {
+    color: #c1d2e1 !important;
+}
+
+input::-moz-placeholder {
+    color: #c1d2e1 !important;
+}
+
+input:-ms-input-placeholder {
+    color: #c1d2e1 !important;
+}
+
+select:focus {
+    outline: none;
+}
+
+span {
+    font-size: 12px;
+}
+
+a {
+    font-weight: bold;
+    color: #8ca5bb;
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    color: #02aadb;
+    text-decoration: none;
+    text-align: center;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.help-text {
+    color: #ccc;
+    float: left;
+    margin-top: 17px;
+    height: 36px;
+    padding-top: 9px;
+    border: 1px solid #d6e5ec;
+    border-left: none;
+    border-right: none;
+}
+
+.help-text > span {
+    color: #578ebe;
+}
+
+.help-text > .danger {
+    color: red;
+}
+
+.hide-dom {
+    display: none;
+}
+
+.height-40 {
+    height: 40px;
+}
+
+.margin-left-3 {
+    margin-left: 3px;
+}
+
+.margin-left-15 {
+    margin-left: 15px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+/*弹出框里面数据的样式*/
+.choose_car:hover {
+    color: #fff;
+    cursor: pointer;
+    background-color: #02aadb !important;
+}
+
+.btn-color-red{
+    background: #ff7800;
+}
+.btn-color-green{
+    background: #1BBC9B;
+}
+.btn-color-blue{
+    background: #02aadb;
+}
+
+.backColor {
+    color: #02AADB;
+}
+
+.brand-logo {
+    border-right: 1px solid #D6E5EC;
+    background-color: #ffffff;
+    width: 130px;
+    height: 150px;
+    margin-left: 30px;
+}
+
+.float-none {
+    float: none !important;
+}
+.float-left{
+    float: left !important;
+}
+.float-right{
+    float: right !important;
+}
+.border-bottom{
+    border-bottom: 1px solid #D6E5EC;
+}
+.width-100{
+    width:100% !important;
+}
+.margin-left-15{
+    margin-left: 15px;
+}
+.display-none{
+    display: none;
+}
+.text-align-left{
+    text-align: left;
+}
+.goodsDetail-style{
+    color: #02aadb;
+    margin-left: 10px
+}
+.brand-logo h4 {
+    margin-top: 14px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #8CA5BB;
+}
+
+.brand-logo-content {
+    width: 25px;
+    height: 25px;
+    background-color: #7D8284;
+    padding-top: 5px;
+    margin-bottom: -10px;
+}
+
+.brand-logo-content span {
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.car-list {
+    padding-left: 20px !important;
+}
+
+.car-list h4 {
+    color: #ABABAB;
+    text-align: left;
+    font-size: 14px;
+}
+
+.car-list div {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.car-list label {
+    color: #D8E6ED;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#head-li li {
+    list-style-type: none;
+    float: left;
+    margin-top: 28px;
+
+}
+
+.picture-border, #pictureList img:hover {
+    border: 1px solid #149AD1 !important;
+}
+
+.thirdList-backColor {
+    background-color: #A7E9FE;
+    /*border: 1px solid #149AD1 !important;*/
+    color: #02aadb;
+}
+
+
+.margin-set {
+    margin: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+
+.timeline-add {
+    margin-left: 5px;
+    color: #6E7073;
+}
+
+.margin-add {
+    margin-left: 100px;
+}
+
+.add-style {
+    margin: 1px;
+    color: #6E7073;
+}
+
+.car-model-list-add {
+    list-style-type: none;
+    margin-left: -40px;
+    margin-bottom: 2px;
+}
+
+.selectCar-backColor {
+    background-color: #B5EDFD;
+    border: 1px solid #02AADB !important;
+    color: #02AADB;
+    padding: 1px;
+    border-radius: 2px;
+}
+
+.selectCar {
+    background-color: #CBCFD8;
+}
+
+#oeList-carModel span:hover {
+    font-size: 14px;
+    color: red;
+}
+.pictureList-div{
+    float: left;
+    width: 70px;
+    margin-right: 10px;
+}
+/**
+*适配车型模版样式,通用
+*/
+.oe-carModel{
+    width: 100%;
+    border-bottom: 1px solid #d6e5ec;
+    /*margin-bottom: 15px;*/
+    /*padding-bottom: 15px*/
+}
+.oe-carModel-head{
+    width: 60px;
+    height: auto;
+}
+.selectCarModel-ul{
+    list-style-type: none;
+    margin-left: -40px;
+    margin-bottom: 2px;
+}
+
+.curse-pointer{
+    cursor: pointer;
+}
+.oe-carModel-body{
+    border: 1px solid #bfcfd9;
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    padding: 1px 3px;
+    cursor: pointer;
+}
+
+
+/* ============== hzt 添加 =============== */
+.ul-style{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.ul-style li{
+    float: left;
+}
+
+/* 车型样式 */
+.car-brand-div{
+    width: 100%;
+    border-bottom: 1px solid #d6e5ec;
+    color: #747a7d
+}
+.car-model-ul{
+    margin-left: 10px;
+    text-align: left;
+}
+.car-model-ul>li{
+    float: none !important;
+    margin-bottom: 10px;
+}
+.car-model-ul label{
+    margin: 0 5px !important;
+}
+.car-model-div{
+    text-align: left;
+    margin-top: 5px;
+}
+
+.car-model-span{
+    cursor: pointer;
+}
+.car-model-selected,.car-model-span:hover{
+    background-color: #B5EDFD;
+    border: 1px solid #02AADB !important;
+    color: #02AADB;
+    padding: 1px;
+    border-radius: 2px;
+}
+.car-li{
+    border: 1px solid #bfcfd9;
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+/* 配件详情表格样式 */
+.detail-table{
+    width: 100%;
+}
+.detail-table td{
+    text-align: left;
+    padding: 3px 3px 3px 0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    display: inline-block !important;
+}
+.detail-table span{
+    color: #02aadb;
+    padding-left: 10px;
+}
+.detail-table td:nth-child(1){width: 70%;}
+.detail-table td:nth-child(2){width: 30%;}
+
+/* 内容超出，显示省略号样式 */
+.omit-style{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 小图列表样式 */
+.picture-list {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+.small-pic{
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.big-picture {
+    width: 100%;
+    height: 500px;
+    cursor: url('/img/magnifier26.png'), auto;
+}
+
+
+/* 主体内容样式 */
+.main-content{
+    min-height: 720px;
+    /*background-color: #f5f9fc;*/
+}
+/* 部分页面内容固定高度 */
+.content-height{
+    height: 720px;
+}
+
+/*分页*/
+.pagination{
+    display:inline-block;
+    padding-left:0;
+    margin:20px 0;
+    border-radius:4px
+}
+
+.pagination>a,.pagination>input{
+    display:inline;
+    position:relative;
+    float:left;
+    padding:6px 12px;
+    line-height:1.428571429;
+    text-decoration:none;
+    background-color:#fff;
+    border:1px solid #ddd;
+    text-align: center;
+    width: initial;
+    font-size: 14px;
+    margin-left:-1px;
+}
+.pagination>input{
+    width: 200px;
+}
+
+.pagination>a:first-child{
+    margin-left:0;
+    border-bottom-left-radius:4px;
+    border-top-left-radius:4px
+}
+.pagination>a:last-child{
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px
+}
+
+.pagination>a:hover,.pagination>a:focus{
+    background-color:#eee
+}
+.pagination>a.active,.pagination>a.active:hover,.pagination>a.active:focus{
+    z-index:2;
+    color:#fff;
+    cursor:default;
+    background-color:#428bca;
+    border-color:#428bca
+}
+.pagination>a.disabled,.pagination>.disabled>a,.pagination>a.disabled:hover,.pagination>a.disabled:focus{
+    color:#DAD4D4;
+    cursor:not-allowed;
+    background-color:#fff;
+    border-color:#ddd
+}
+
+
+/* 没有数据提示 */
+.no-data-div{
+    padding-top: 100px;
+}
+.no-data-tip{
+    margin-top: 17px;
+    font-size: 16px;
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 品牌logo相关样式 */
+.brand-logo-th{
+    background-color: #ffffff;
+    vertical-align: top !important;
+    border-right: 1px solid #D6E5EC;
+    border-bottom: 1px solid #D6E5EC;
+}
+.brand-logo-th h4{
+    font-size: 16px !important;
+}
+
+.brand-first-word-div{
+    width: 25px;
+    height: 25px;
+    background-color: #7D8284;
+    padding-top: 5px;
+    margin-bottom: -10px;
+    color: #ffffff;
+}
+.brand-logo-div{
+    padding: 10px;
+}
+
+/* 城市站相关样式 */
+.dropdown-div{
+    float: right;
+    /*width: 100px;*/
+    margin-left: 20px;
+    margin-top: -5px;
+}
+.dropdown-div button{
+    padding: 2px 0 2px 4px;
+    border-color: #B2C8D2 !important;
+}
+.dropdown-div .city-select{
+    padding: 0 10px;
+}
+.dropdown-div .city-select-down{
+    color: #0BC6E4;
+    /*float: right;*/
+    border-top: 8px solid;
+    /*margin-top: 7px;*/
+    margin-right: 7px;
+}
+.dropdown-city{
+    border: solid 2px #B2C8D2;
+    overflow: auto;
+    height: 40px;
+    text-align: left;
+    padding: 5px 5px 0 5px;
+    margin-top: 1px !important;
+}
+.dropdown-city span{
+    font-family: "Microsoft YaHei" !important;
+}
+.dropdown-menu-right{
+    right: 0 !important;
+    left: auto !important;
+}
+.province-span{
+    color: grey;
+    margin-right: 5px;
+}
+.city-span{
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: orange;
+}
+.city-span:hover{
+    color: red;
+}
+
+/* 购物车图标 */
+.shopping-cart-style{
+    font-size: 15px !important;
+    color: #ff7800 !important;
+}
+
+/* 表单行选中样式 */
+.selected-style {
+    background-color: #A7E9FE;
+    color: #02aadb;
+}
+
+/* 查看相关配件按钮样式 */
+.pic-goods-div{
+    text-align: left;
+    padding-bottom: 15px;
+    padding-top: 5px;
+}
+.pic-goods-div a{
+    font-size: 12px;
+    color: white !important;
+    background-color: #1BBC9B;
+    padding: 3px 5px 4px 5px;
+    border-radius: 2px;
+}
+
+/* 报价列表相关样式 */
+.offering-div{
+    padding: 5px 0;
+}
+.choose-quality {
+    -webkit-appearance: none;
+    float: left;
+    height: 28px;
+    width: 100px;
+    border: 1px solid #d6e5ec;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-left:5px;
+    color: #869cb1;
+    font-size: 12px;
+    background: white url('/img/epc-type-header/xiala2.png') no-repeat 82px 50%;
+}
+
+.buy-condition {
+    margin: 0 auto;
+    border-bottom: 1px solid #d6e5ec;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.buy-btn {
+    border: none;
+    color: #ffffff;
+    border-radius: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin:0 3px;
+}
+
+.part-quality-filter{
+    float: left;
+    margin-top: 6px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.offering-company{
+    padding: 5px 0;
+    background-color: #DBDEE1;
+}
+
+/* 登陆样式 */
+.input-icon > i{
+    margin-top: 16px !important;
+}
+.input-icon > input{
+    height: 43px;
+}
+.form-actions{
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.form-actions > button{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-title{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.verify-code{
+    width: 56%;
+}
+.verify-code-bt{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 11px;
+    width: 40%;
+}
+.disabled-bt{
+    background-color: #B3ADAD !important;
+}
+.login-error-message{
+    color: #b94a48;
+    background-color: #f2dede;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.login-btn-style{
+    text-decoration: underline !important;
+    color: #EA6343 !important;
+    font-size: 14px;
+}
+
+
+/* ＝＝＝＝＝＝＝＝   公共分页样式 start ＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+.qxy_page {margin: 20px 0; text-align: center; }
+.qxy_page_inner {display: inline-block; *display: inline; *zoom: 1; font-size: 0; border: 1px solid #ddd; border-radius: 5px; }
+.qxy_page a, .qxy_page span {display: inline-block; *display: inline; *zoom: 1; padding: 0 12px; height: 32px; line-height: 32px; color: #3c8dbc; text-decoration: none; background-color: #fff; border-right: 1px solid #ddd; font-size: 12px; vertical-align: middle; }
+.qxy_page span.disabled {color: #777; cursor: not-allowed; background-color: #fbfbfb; border-color: #ddd; }
+.opt_right span.disabled {color: #999; cursor: not-allowed; }
+.qxy_page a:hover {color: #2a6496; background-color: #eee; border-color: #ddd; }
+.qxy_page span.yqx-pg-current {color: #fff; background: #3c8dbc; }
+.qxy_page input {width: 32px; height: 18px; margin: -2px 2px 0; line-height: 18px; font-size: 12px; color: #999; text-align: center; vertical-align: middle; border: 1px solid #ccc;background: #fff;}
+.qxy_page .qxy_page_count {border-radius: 5px 0 0 5px; }
+.qxy_page .qxy_go_btn {border-right: none; border-radius: 0 5px 5px 0; }
+/* ＝＝＝＝＝＝＝＝   公共分页样式 end ＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+/* ＝＝＝＝＝＝＝＝   LOP公共样式 start ＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+/*div左对齐*/
+.text-align-left {
+    text-align: left;
+}
+
+/*必填项, 星星等*/
+.necessary-star {
+    margin-right: 5px;
+    color: #FE7A00;
+}
+
+/*关键词样式*/
+.key-word {
+    color: #8AA6BC;
+}
+
+/*按钮样式*/
+.operation-btn {
+    width: 110px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #000000;
+    cursor: pointer;
+}
+
+/* ＝＝＝＝＝＝＝＝   LOP公共样式 end ＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+.w1190{
+    width: 1152px;
+}
+
+/* ＝＝＝＝＝＝＝＝   ORDER公共样式 start ＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+.adaptive-car {
+    width: 90px;
+    height: 30px;
+    border: 1px solid #E6E5E5;
+    background-color: #EEF3F6;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* ＝＝＝＝＝＝＝＝   ORDER公共样式 end ＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+/* 商家图标 */
+.seller-company-img{
+    background: url("/img/icon/ico_business.png") no-repeat;
+    height: 19px;
+    margin-right: 8px;
+    padding-right: 20px;
+}
+.seller-im-icon{
+    background: url("/img/icon/ico_im.png") no-repeat #02aadb 6px;
+    color: #fff;
+    padding: 3px 8px 4px 26px;
+    border-radius: 3px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.readonly-style{
+    background: #F2F2F2;
+    cursor: not-allowed;
+}
+
+/* 报价列表联系商家按钮 */
+.contact-seller-bt{
+    /*z-index: 9999;*/
+    /*position: relative;*/
+}

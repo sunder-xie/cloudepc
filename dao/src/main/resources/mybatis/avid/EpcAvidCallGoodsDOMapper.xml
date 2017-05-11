@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.avid.EpcAvidCallGoodsDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.avid.EpcAvidCallGoodsDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="avid_call_id" property="avidCallId" jdbcType="INTEGER" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_oe" property="goodsOe" jdbcType="VARCHAR" />
+    <result column="goods_number" property="goodsNumber" jdbcType="INTEGER" />
+    <result column="goods_unit" property="goodsUnit" jdbcType="VARCHAR" />
+    <result column="goods_quality_id" property="goodsQualityId" jdbcType="INTEGER" />
+    <result column="goods_brand_id" property="goodsBrandId" jdbcType="INTEGER" />
+    <result column="goods_remark" property="goodsRemark" jdbcType="VARCHAR" />
+    <result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
+    <result column="back_quality_id" property="backQualityId" jdbcType="INTEGER" />
+    <result column="modifier_name" property="modifierName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, avid_call_id, goods_name, 
+    goods_oe, goods_number, goods_unit, goods_quality_id, goods_brand_id, goods_remark, 
+    goods_price, back_quality_id, modifier_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_avid_call_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_avid_call_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.avid.EpcAvidCallGoodsDO" >
+    insert into epc_avid_call_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="avidCallId != null" >
+        avid_call_id,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsOe != null" >
+        goods_oe,
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number,
+      </if>
+      <if test="goodsUnit != null" >
+        goods_unit,
+      </if>
+      <if test="goodsQualityId != null" >
+        goods_quality_id,
+      </if>
+      <if test="goodsBrandId != null" >
+        goods_brand_id,
+      </if>
+      <if test="goodsRemark != null" >
+        goods_remark,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+      <if test="backQualityId != null" >
+        back_quality_id,
+      </if>
+      <if test="modifierName != null" >
+        modifier_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avidCallId != null" >
+        #{avidCallId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsOe != null" >
+        #{goodsOe,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null" >
+        #{goodsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="goodsUnit != null" >
+        #{goodsUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsQualityId != null" >
+        #{goodsQualityId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsBrandId != null" >
+        #{goodsBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsRemark != null" >
+        #{goodsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="backQualityId != null" >
+        #{backQualityId},
+      </if>
+      <if test="modifierName != null" >
+        #{modifierName},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.avid.EpcAvidCallGoodsDO" >
+    update epc_avid_call_goods
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avidCallId != null" >
+        avid_call_id = #{avidCallId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsOe != null" >
+        goods_oe = #{goodsOe,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number = #{goodsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="goodsUnit != null" >
+        goods_unit = #{goodsUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsQualityId != null" >
+        goods_quality_id = #{goodsQualityId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsBrandId != null" >
+        goods_brand_id = #{goodsBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsRemark != null" >
+        goods_remark = #{goodsRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="backQualityId != null" >
+        back_quality_id = #{backQualityId,jdbcType=INTEGER},
+      </if>
+      <if test="modifierName != null" >
+        modifier_name = #{modifierName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="getByAvidCallId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from epc_avid_call_goods
+    where avid_call_id = #{avidCallId,jdbcType=INTEGER}
+    and is_deleted = 'N'
+  </select>
+
+  <insert id="batchInsert" >
+    insert into epc_avid_call_goods(gmt_create, gmt_modified, modifier_name,
+    avid_call_id, goods_name, goods_oe, goods_number, goods_unit,
+    goods_quality_id, back_quality_id, goods_remark)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.gmtCreate}, #{item.gmtModified}, #{item.modifierName},
+      #{item.avidCallId}, #{item.goodsName}, #{item.goodsOe},
+      #{item.goodsNumber}, #{item.goodsUnit}, #{item.goodsQualityId},
+      #{item.backQualityId}, #{item.goodsRemark}
+      )
+    </foreach>
+  </insert>
+
+  <update id="deleteByAvidCallId" parameterType="java.lang.Integer">
+    update epc_avid_call_goods
+    set is_deleted = 'Y'
+    where avid_call_id = #{avidCallId} and is_deleted = 'N'
+  </update>
+
+</mapper>

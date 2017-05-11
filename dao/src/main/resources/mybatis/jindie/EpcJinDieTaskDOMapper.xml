@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.jindie.EpcJinDieTaskDOMapper">
+    <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.jindie.EpcJinDieTaskDO">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="CHAR"/>
+        <result column="creator" property="creator" jdbcType="INTEGER"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="modifier" property="modifier" jdbcType="INTEGER"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="task_status" property="taskStatus" jdbcType="TINYINT"/>
+        <result column="result_status" property="resultStatus" jdbcType="TINYINT"/>
+        <result column="order_id" property="orderId" jdbcType="INTEGER"/>
+        <result column="order_sn" property="orderSn" jdbcType="VARCHAR"/>
+        <result column="shop_number" property="shopNumber" jdbcType="VARCHAR"/>
+        <result column="seller_number" property="sellerNumber" jdbcType="VARCHAR"/>
+        <result column="purchase_number" property="purchaseNumber" jdbcType="VARCHAR"/>
+        <result column="in_ware_number" property="inWareNumber" jdbcType="VARCHAR"/>
+        <result column="invoice_number" property="invoiceNumber" jdbcType="VARCHAR"/>
+        <result column="out_ware_number" property="outWareNumber" jdbcType="VARCHAR"/>
+        <result column="handle_times" property="handleTimes" jdbcType="INTEGER"/>
+        <result column="fail_reason" property="failReason" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, task_status, result_status, 
+    order_id, order_sn, shop_number, seller_number, purchase_number, in_ware_number, 
+    invoice_number, out_ware_number, handle_times, fail_reason
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from epc_jindie_task
+        where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from epc_jindie_task
+    where id = #{id}
+  </delete>
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.tqmall.data.epc.bean.entity.jindie.EpcJinDieTaskDO">
+        insert into epc_jindie_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            gmt_create,
+
+            <if test="taskStatus != null">
+                task_status,
+            </if>
+            <if test="resultStatus != null">
+                result_status,
+            </if>
+            <if test="orderId != null">
+                order_id,
+            </if>
+            <if test="orderSn != null">
+                order_sn,
+            </if>
+            <if test="shopNumber != null">
+                shop_number,
+            </if>
+            <if test="sellerNumber != null">
+                seller_number,
+            </if>
+            <if test="purchaseNumber != null">
+                purchase_number,
+            </if>
+            <if test="inWareNumber != null">
+                in_ware_number,
+            </if>
+            <if test="invoiceNumber != null">
+                invoice_number,
+            </if>
+            <if test="outWareNumber != null">
+                out_ware_number,
+            </if>
+            <if test="handleTimes != null">
+                handle_times,
+            </if>
+            <if test="failReason != null">
+                fail_reason,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=CHAR},
+            </if>
+            <if test="creator != null">
+                #{creator},
+            </if>
+            NOW(),
+            <if test="taskStatus != null">
+                #{taskStatus},
+            </if>
+            <if test="resultStatus != null">
+                #{resultStatus},
+            </if>
+            <if test="orderId != null">
+                #{orderId},
+            </if>
+            <if test="orderSn != null">
+                #{orderSn},
+            </if>
+            <if test="shopNumber != null">
+                #{shopNumber},
+            </if>
+            <if test="sellerNumber != null">
+                #{sellerNumber},
+            </if>
+            <if test="purchaseNumber != null">
+                #{purchaseNumber},
+            </if>
+            <if test="inWareNumber != null">
+                #{inWareNumber},
+            </if>
+            <if test="invoiceNumber != null">
+                #{invoiceNumber},
+            </if>
+            <if test="outWareNumber != null">
+                #{outWareNumber},
+            </if>
+            <if test="handleTimes != null">
+                #{handleTimes},
+            </if>
+            <if test="failReason != null">
+                #{failReason},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.jindie.EpcJinDieTaskDO">
+        update epc_jindie_task
+        <set>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted,jdbcType=CHAR},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier},
+            </if>
+            gmt_modified = NOW(),
+            <if test="taskStatus != null">
+                task_status = #{taskStatus},
+            </if>
+            <if test="resultStatus != null">
+                result_status = #{resultStatus},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="orderSn != null">
+                order_sn = #{orderSn},
+            </if>
+            <if test="shopNumber != null">
+                shop_number = #{shopNumber},
+            </if>
+            <if test="sellerNumber != null">
+                seller_number = #{sellerNumber},
+            </if>
+            <if test="purchaseNumber != null">
+                purchase_number = #{purchaseNumber},
+            </if>
+            <if test="inWareNumber != null">
+                in_ware_number = #{inWareNumber},
+            </if>
+            <if test="invoiceNumber != null">
+                invoice_number = #{invoiceNumber},
+            </if>
+            <if test="outWareNumber != null">
+                out_ware_number = #{outWareNumber},
+            </if>
+            <if test="handleTimes != null">
+                handle_times = #{handleTimes},
+            </if>
+            <if test="failReason != null">
+                fail_reason = #{failReason},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+    <select id="selectByDO" resultMap="BaseResultMap"
+            parameterType="com.tqmall.data.epc.bean.entity.jindie.EpcJinDieTaskDO">
+        select
+        <include refid="Base_Column_List"/>
+        from epc_jindie_task
+        where is_deleted = 'N'
+        <if test="taskStatus != null">
+            and task_status = #{taskStatus}
+        </if>
+        <if test="resultStatus != null">
+            and result_status = #{resultStatus}
+        </if>
+        <if test="orderId != null">
+            and order_id = #{orderId}
+        </if>
+        <if test="orderSn != null">
+            and order_sn = #{orderSn}
+        </if>
+        <if test="shopNumber != null">
+            and shop_number = #{shopNumber}
+        </if>
+        <if test="sellerNumber != null">
+            and seller_number = #{sellerNumber}
+        </if>
+        <if test="purchaseNumber != null">
+            and purchase_number = #{purchaseNumber}
+        </if>
+        <if test="inWareNumber != null">
+            and in_ware_number = #{inWareNumber}
+        </if>
+        <if test="invoiceNumber != null">
+            and invoice_number = #{invoiceNumber}
+        </if>
+        <if test="outWareNumber != null">
+            and out_ware_number = #{outWareNumber}
+        </if>
+        <if test="handleTimes != null">
+            and handle_times = #{handleTimes}
+        </if>
+        <if test="failReason != null">
+            and fail_reason = #{failReason}
+        </if>
+    </select>
+
+</mapper>

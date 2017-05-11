@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:provider timeout="60000" />
+
+    <!-- 订单服务 -->
+    <bean id="orderService" class="com.tqmall.data.epc.server.order.OrderServiceImpl"/>
+    <dubbo:service interface="com.tqmall.data.epc.client.server.order.OrderService"
+                   ref="orderService" version="${dubbo.service.version}" owner="zhangting.huang" />
+
+    <!-- 订单支付服务 -->
+    <bean id="orderPayService" class="com.tqmall.data.epc.server.order.OrderPayServiceImpl"/>
+    <dubbo:service interface="com.tqmall.data.epc.client.server.order.OrderPayService"
+                   ref="orderPayService" version="${dubbo.service.version}" owner="zhangting.huang" />
+
+    <!-- 发货方式服务 -->
+    <bean id="shippingConfigService" class="com.tqmall.data.epc.server.shipping.ShippingConfigServiceImpl"/>
+    <dubbo:service interface="com.tqmall.data.epc.client.server.shipping.ShippingConfigService"
+                   ref="shippingConfigService" version="${dubbo.service.version}" owner="zhangting.huang" />
+
+    <!-- 管家急呼服务 -->
+    <bean id="avidCallService" class="com.tqmall.data.epc.server.avid.AvidCallServiceImpl"/>
+    <dubbo:service interface="com.tqmall.data.epc.client.server.avid.AvidCallService"
+                   ref="avidCallService" version="${dubbo.service.version}" owner="zhangting.huang" />
+
+</beans>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.order.EpcOrderStatusLogDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.order.EpcOrderStatusLogDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+    <result column="operate_time" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="operator_source" property="operatorSource" jdbcType="TINYINT" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="TINYINT" />
+    <result column="order_status_desc" property="orderStatusDesc" jdbcType="VARCHAR" />
+    <result column="log_content" property="logContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, operator_name, operate_time, operator_source, order_id, order_sn, order_status, 
+    order_status_desc, log_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_order_status_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_order_status_log
+    where id = #{id}
+  </delete>
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderStatusLogDO" >
+    insert into epc_order_status_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="operatorName != null" >
+        operator_name,
+      </if>
+        operate_time,
+      <if test="operatorSource != null" >
+        operator_source,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="orderStatusDesc != null" >
+        order_status_desc,
+      </if>
+      <if test="logContent != null" >
+        log_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="operatorName != null" >
+        #{operatorName},
+      </if>
+        now(),
+      <if test="operatorSource != null" >
+        #{operatorSource},
+      </if>
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus},
+      </if>
+      <if test="orderStatusDesc != null" >
+        #{orderStatusDesc},
+      </if>
+      <if test="logContent != null" >
+        #{logContent},
+      </if>
+    </trim>
+  </insert>
+</mapper>

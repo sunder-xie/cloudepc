@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- ========== athena dubbo接口 ========== -->
+
+    <!-- 车型服务 -->
+    <dubbo:reference interface="com.tqmall.athena.client.car.CarCategoryService"
+                     id="carCategoryService" version="${dubbo.consume.athena.version}" check="true"/>
+
+    <!-- centerCar 有配件的车型分类数据 -->
+    <dubbo:reference interface="com.tqmall.athena.client.center.car.CenterCarService"
+                     id="centerCarService" version="${dubbo.consume.athena.version}" check="true"/>
+    
+    <!--center 车型对应的商品分类数据-->
+    <dubbo:reference interface="com.tqmall.athena.client.center.car.CenterCarCatService"
+                     id="centerCarCatService" version="${dubbo.consume.athena.version}" check="true"/>
+
+    <!-- center goods -->
+    <dubbo:reference interface="com.tqmall.athena.client.center.goods.CenterGoodsService"
+                     id="centerGoodsService" version="${dubbo.consume.athena.version}" check="true"/>
+
+    <!-- vin码 -->
+    <dubbo:reference interface="com.tqmall.athena.client.car.CarVinService"
+                     id="carVinService" version="${dubbo.consume.athena.version}" check="true"/>
+
+
+</beans>

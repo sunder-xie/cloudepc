@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+    <!-- -->
+    <bean id="customRealm" class="com.tqmall.data.epc.biz.shiro.CustomRealm" />
+
+
+    <!-- 会话ID生成器 -->
+    <bean id="sessionIdGenerator"
+          class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+    <!-- 会话DAO -->
+    <bean id="shiroSessionDao"
+          class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+    </bean>
+    <!-- 会话Cookie模板 -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="sid"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="-1"/>
+    </bean>
+    <!-- 会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- 超时时间1天 -->
+        <property name="globalSessionTimeout" value="86400000"/>
+        <!-- 定时检查失效的session -->
+        <property name="sessionValidationSchedulerEnabled" value="true"/>
+        <property name="deleteInvalidSessions" value="true"/>
+        <property name="sessionIdCookieEnabled" value="true"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
+        <property name="sessionDAO" ref="shiroSessionDao"/>
+    </bean>
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="customRealm" />
+        <!--<property name="realms">-->
+            <!--<list><ref bean="myRealm"/></list>-->
+        <!--</property>-->
+        <property name="sessionManager" ref="sessionManager" />
+        <!-- 缓存管理器 -->
+        <!--<property name="cacheManager" ref="shiroCacheManager" />-->
+    </bean>
+
+    <!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->
+    <!--
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod"
+                  value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
+        <property name="arguments" ref="securityManager"/>
+    </bean>
+    -->
+
+    <!-- Subject logout 两种形式
+        1、使用 shiro自带的LogoutFilter
+            需要配置 filterChainDefinitions /mega/user/logout = logout
+        2、自己实现
+            该项目使用自己实现方式
+
+    <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+        <property name="redirectUrl" value="/mega/user/loginPage" />
+    </bean>
+    -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/user/loginPage" />
+        <property name="successUrl" value="/home" />
+        <property name="unauthorizedUrl" value="/unauthorized.html" />
+        <property name="filters">
+            <map>
+                <entry key="user">
+                    <bean class="com.tqmall.data.epc.web.filter.SysUserFilter" />
+                </entry>
+                <entry key="autoLogin">
+                    <bean class="com.tqmall.data.epc.web.filter.AutoLoginFilter" />
+                </entry>
+                <entry key="shop">
+                    <bean class="com.tqmall.data.epc.web.filter.AuthSuccessShopFilter" />
+                </entry>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 购物车 -->
+                /shopping/shoppingCart = autoLogin,shop
+                /shopping/getCartGoodsNum = user
+                /shopping/** = shop
+
+                <!-- 云配商品价格查询 -->
+                /goodsDetail/getGoodsDetailByOem = shop
+
+                <!-- 需求单 -->
+                /wish/myWishPage = autoLogin,shop
+                /wish/createWishPage = autoLogin,shop
+                /wish/myOfferPage = autoLogin,shop
+                /wish = autoLogin,shop
+                /wish/** = shop
+                /user/getDefaultAddress = shop
+                /user/getUserAddressList = shop
+                /user/checkShopVerifyStatus = user
+                /monkChat/** = shop
+
+                <!-- 需要自动登录的页面 -->
+                /home = autoLogin
+                /home/query = autoLogin,user
+                /autoParts/car/carModel = autoLogin,user
+                /autoParts/car/carFilter = autoLogin,user
+                /autoParts/category/category = autoLogin,user
+                /autoParts/goods/goodsDetail = autoLogin,user
+                /autoParts/goods/keyword = autoLogin,user
+                /autoParts/goods/oe = autoLogin,user
+                /goods/picGoods = autoLogin,user
+
+                <!-- 筛选订单 -->
+                /buy/order = autoLogin,shop
+                /buy/order/myOrderPage = autoLogin,shop
+                /buy/order/orderDetail = autoLogin,shop
+                /buy/order/** = shop
+                /part/pay/** = shop
+
+                <!--认证页面-->
+                /verifyShop/verifyIndex = autoLogin
+
+                <!-- 管家急呼 -->
+                /avidCall = autoLogin,shop
+                /avidCall/** = shop
+
+                <!-- 通用的请求需要登录才能访问 -->
+                /common/** = user
+
+                /** = anon
+            </value>
+        </property>
+    </bean>
+
+    <!-- Shiro生命周期处理器 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!--
+        使用shiro的注解方式，必须在springmvc配置文件里面配置aop
+        没试成功，所以使用配置文件方式控制权限
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true" />
+    </bean>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    -->
+
+
+</beans>

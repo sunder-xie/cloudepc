@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.order.EpcOrderPriceLogDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.order.EpcOrderPriceLogDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+    <result column="operate_time" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="order_goods_id" property="orderGoodsId" jdbcType="INTEGER" />
+    <result column="goods_sn" property="goodsSn" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_price_old" property="goodsPriceOld" jdbcType="DECIMAL" />
+    <result column="goods_price_new" property="goodsPriceNew" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, operator_name, operate_time, order_id, order_sn, order_goods_id, goods_sn, goods_name, 
+    goods_price_old, goods_price_new
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_order_price_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_order_price_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderPriceLogDO" >
+    insert into epc_order_price_log (id, operator_name, operate_time, 
+      order_id, order_sn, order_goods_id, 
+      goods_sn, goods_name, goods_price_old, 
+      goods_price_new)
+    values (#{id,jdbcType=INTEGER}, #{operatorName,jdbcType=VARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, 
+      #{orderId,jdbcType=INTEGER}, #{orderSn,jdbcType=VARCHAR}, #{orderGoodsId,jdbcType=INTEGER}, 
+      #{goodsSn,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsPriceOld,jdbcType=DECIMAL}, 
+      #{goodsPriceNew,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderPriceLogDO" >
+    insert into epc_order_price_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="operatorName != null" >
+        operator_name,
+      </if>
+        operate_time,
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="orderGoodsId != null" >
+        order_goods_id,
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsPriceOld != null" >
+        goods_price_old,
+      </if>
+      <if test="goodsPriceNew != null" >
+        goods_price_new,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="operatorName != null" >
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+      now(),
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderGoodsId != null" >
+        #{orderGoodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null" >
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPriceOld != null" >
+        #{goodsPriceOld,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPriceNew != null" >
+        #{goodsPriceNew,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderPriceLogDO" >
+    update epc_order_price_log
+    <set >
+      <if test="operatorName != null" >
+        operator_name = #{operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null" >
+        operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderGoodsId != null" >
+        order_goods_id = #{orderGoodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPriceOld != null" >
+        goods_price_old = #{goodsPriceOld,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPriceNew != null" >
+        goods_price_new = #{goodsPriceNew,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderPriceLogDO" >
+    update epc_order_price_log
+    set operator_name = #{operatorName,jdbcType=VARCHAR},
+      operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      order_id = #{orderId,jdbcType=INTEGER},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      order_goods_id = #{orderGoodsId,jdbcType=INTEGER},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_price_old = #{goodsPriceOld,jdbcType=DECIMAL},
+      goods_price_new = #{goodsPriceNew,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,63 @@
+jdbc.driverClassName=${jdbc.driverClassName}
+#数据库配置
+jdbc.url=${jdbc.url}
+jdbc.username=${jdbc.username}
+jdbc.password=${jdbc.password}
+
+#dubbo
+dubbo.application.name=${dubbo.application.name}
+zookeeper.address=${zookeeper.address}
+dubbo.port = ${dubbo.port}
+dubbo.service.version = ${dubbo.service.version}
+
+# 消费方
+dubbo.consume.athena.version=${dubbo.consume.athena.version}
+dubbo.consume.search.version=${dubbo.consume.search.version}
+dubbo.consume.stall.version=${dubbo.consume.stall.version}
+dubbo.consume.uc.version=${dubbo.consume.uc.version}
+dubbo.consume.finance.version=${dubbo.consume.finance.version}
+dubbo.consume.part.version = ${dubbo.consume.part.version}
+dubbo.consume.monk.version = ${dubbo.consume.monk.version}
+dubbo.consume.holy.version = ${dubbo.consume.holy.version}
+
+dubbo.consume.jindie.version = ${dubbo.consume.jindie.version}
+dubbo.jindie.url = ${dubbo.jindie.url}
+
+#redis
+redis.host=${redis.host}
+
+#前端版本（本地开发：epc-dev，服务器上：epc-release）
+web.version=${web.version}
+
+# vin码查询次数限制开关
+vin.search.switch=${vin.search.switch}
+
+# 验证码开关
+verify.switch=${verify.switch}
+
+# =======图片上传 oss =========
+#图片上传路径
+img.path=${img.path}
+#bucket的名称，
+tqmall.oss.bucketName        = ${tqmall.oss.bucketName}
+#访问控制
+tqmall.oss.accesskeyId       = ${tqmall.oss.accesskeyId}
+tqmall.oss.accessKeySecret   = ${tqmall.oss.accessKeySecret}
+
+#域名与数据中心
+tqmall.oss.endpoint          = ${tqmall.oss.endpoint}
+tqmall.oss.imgEndpoint       = ${tqmall.oss.imgEndpoint}
+tqmall.oss.region            = ${tqmall.oss.region}
+tqmall.oss.regionImg         = ${tqmall.oss.regionImg}
+
+# =======end 图片上传 oss =========
+#项目域名
+epc.host.public=${epc.host.public}
+
+#云修免登加密前后缀字符串
+legend.key.prefix = ${legend.key.prefix}
+legend.key.suffix = ${legend.key.suffix}
+
+#im
+monk.host = ${monk.host}
+monk.epc.server.id = ${monk.epc.server.id}

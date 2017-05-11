@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.order.EpcOrderDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.order.EpcOrderDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="INTEGER" />
+    <result column="city" property="city" jdbcType="INTEGER" />
+    <result column="district" property="district" jdbcType="INTEGER" />
+    <result column="street" property="street" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="seller_id" property="sellerId" jdbcType="INTEGER" />
+    <result column="seller_telephone" property="sellerTelephone" jdbcType="VARCHAR" />
+    <result column="seller_company_name" property="sellerCompanyName" jdbcType="VARCHAR" />
+    <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="TINYINT" />
+    <result column="shipping_status" property="shippingStatus" jdbcType="TINYINT" />
+    <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
+    <result column="settle_status" property="settleStatus" jdbcType="TINYINT" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="shipping_time" property="shippingTime" jdbcType="TIMESTAMP" />
+    <result column="sign_time" property="signTime" jdbcType="TIMESTAMP" />
+    <result column="auto_sign_time" property="autoSignTime" jdbcType="TIMESTAMP" />
+    <result column="settle_time" property="settleTime" jdbcType="TIMESTAMP" />
+    <result column="shipping_id" property="shippingId" jdbcType="INTEGER" />
+    <result column="shipping_name" property="shippingName" jdbcType="VARCHAR" />
+    <result column="pay_id" property="payId" jdbcType="INTEGER" />
+    <result column="pay_name" property="payName" jdbcType="VARCHAR" />
+    <result column="inv_type" property="invType" jdbcType="TINYINT" />
+    <result column="inv_type_name" property="invTypeName" jdbcType="VARCHAR" />
+    <result column="order_note" property="orderNote" jdbcType="VARCHAR" />
+    <result column="goods_amount" property="goodsAmount" jdbcType="DECIMAL" />
+    <result column="order_amount" property="orderAmount" jdbcType="DECIMAL" />
+    <result column="pay_no" property="payNo" jdbcType="VARCHAR" />
+    <result column="need_settle_amount" property="needSettleAmount" jdbcType="DECIMAL" />
+    <result column="has_settle_amount" property="hasSettleAmount" jdbcType="DECIMAL" />
+    <result column="tax_rate" property="taxRate" jdbcType="DECIMAL" />
+
+    <result column="commission_rate" property="commissionRate" jdbcType="DECIMAL" />
+    <result column="shipping_fee" property="shippingFee" jdbcType="DECIMAL" />
+    <result column="seller_order_note" property="sellerOrderNote" jdbcType="VARCHAR" />
+    <result column="parent_order_sn" property="parentOrderSn" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, shop_id, company_name, 
+    consignee, mobile, province, city, district, street, address, city_id, account_id, 
+    seller_id, seller_telephone, seller_company_name, warehouse_id, order_sn, order_status, 
+    shipping_status, pay_status, settle_status, pay_time, shipping_time, sign_time, auto_sign_time, 
+    settle_time, shipping_id, shipping_name, pay_id, pay_name, inv_type, inv_type_name, 
+    order_note, goods_amount, order_amount, pay_no, need_settle_amount, has_settle_amount, 
+    tax_rate, commission_rate, shipping_fee, seller_order_note, parent_order_sn
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_order
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_order
+    where id = #{id}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderDO"
+          useGeneratedKeys="true" keyProperty="id">
+    insert into epc_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="street != null" >
+        street,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone,
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name,
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="shippingStatus != null" >
+        shipping_status,
+      </if>
+      <if test="payStatus != null" >
+        pay_status,
+      </if>
+      <if test="settleStatus != null" >
+        settle_status,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="shippingTime != null" >
+        shipping_time,
+      </if>
+      <if test="signTime != null" >
+        sign_time,
+      </if>
+      <if test="autoSignTime != null" >
+        auto_sign_time,
+      </if>
+      <if test="settleTime != null" >
+        settle_time,
+      </if>
+      <if test="shippingId != null" >
+        shipping_id,
+      </if>
+      <if test="shippingName != null" >
+        shipping_name,
+      </if>
+      <if test="payId != null" >
+        pay_id,
+      </if>
+      <if test="payName != null" >
+        pay_name,
+      </if>
+      <if test="invType != null" >
+        inv_type,
+      </if>
+      <if test="invTypeName != null" >
+        inv_type_name,
+      </if>
+      <if test="orderNote != null" >
+        order_note,
+      </if>
+      <if test="goodsAmount != null" >
+        goods_amount,
+      </if>
+      <if test="orderAmount != null" >
+        order_amount,
+      </if>
+      <if test="payNo != null" >
+        pay_no,
+      </if>
+      <if test="needSettleAmount != null" >
+        need_settle_amount,
+      </if>
+      <if test="hasSettleAmount != null" >
+        has_settle_amount,
+      </if>
+      <if test="taxRate != null" >
+        tax_rate,
+      </if>
+
+      <if test="commissionRate != null" >
+        commission_rate,
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee,
+      </if>
+      <if test="sellerOrderNote != null" >
+        seller_order_note,
+      </if>
+      <if test="parentOrderSn != null" >
+        parent_order_sn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted},
+      </if>
+      <if test="creator != null" >
+        #{creator},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate},
+      </if>
+      <if test="modifier != null" >
+        #{modifier},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified},
+      </if>
+      <if test="shopId != null" >
+        #{shopId},
+      </if>
+      <if test="companyName != null" >
+        #{companyName},
+      </if>
+      <if test="consignee != null" >
+        #{consignee},
+      </if>
+      <if test="mobile != null" >
+        #{mobile},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="district != null" >
+        #{district},
+      </if>
+      <if test="street != null" >
+        #{street},
+      </if>
+      <if test="address != null" >
+        #{address},
+      </if>
+      <if test="cityId != null" >
+        #{cityId},
+      </if>
+      <if test="accountId != null" >
+        #{accountId},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId},
+      </if>
+      <if test="sellerTelephone != null" >
+        #{sellerTelephone},
+      </if>
+      <if test="sellerCompanyName != null" >
+        #{sellerCompanyName},
+      </if>
+      <if test="warehouseId != null" >
+        #{warehouseId},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus},
+      </if>
+      <if test="shippingStatus != null" >
+        #{shippingStatus},
+      </if>
+      <if test="payStatus != null" >
+        #{payStatus},
+      </if>
+      <if test="settleStatus != null" >
+        #{settleStatus},
+      </if>
+      <if test="payTime != null" >
+        #{payTime},
+      </if>
+      <if test="shippingTime != null" >
+        #{shippingTime},
+      </if>
+      <if test="signTime != null" >
+        #{signTime},
+      </if>
+      <if test="autoSignTime != null" >
+        #{autoSignTime},
+      </if>
+      <if test="settleTime != null" >
+        #{settleTime},
+      </if>
+      <if test="shippingId != null" >
+        #{shippingId},
+      </if>
+      <if test="shippingName != null" >
+        #{shippingName},
+      </if>
+      <if test="payId != null" >
+        #{payId},
+      </if>
+      <if test="payName != null" >
+        #{payName},
+      </if>
+      <if test="invType != null" >
+        #{invType},
+      </if>
+      <if test="invTypeName != null" >
+        #{invTypeName},
+      </if>
+      <if test="orderNote != null" >
+        #{orderNote},
+      </if>
+      <if test="goodsAmount != null" >
+        #{goodsAmount},
+      </if>
+      <if test="orderAmount != null" >
+        #{orderAmount},
+      </if>
+      <if test="payNo != null" >
+        #{payNo},
+      </if>
+      <if test="needSettleAmount != null" >
+        #{needSettleAmount},
+      </if>
+      <if test="hasSettleAmount != null" >
+        #{hasSettleAmount},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate},
+      </if>
+
+      <if test="commissionRate != null" >
+        #{commissionRate},
+      </if>
+      <if test="shippingFee != null" >
+        #{shippingFee},
+      </if>
+      <if test="sellerOrderNote != null" >
+        #{sellerOrderNote},
+      </if>
+      <if test="parentOrderSn != null" >
+        #{parentOrderSn},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderDO" >
+    update epc_order
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier},
+      </if>
+        gmt_modified = now(),
+      <if test="shopId != null" >
+        shop_id = #{shopId},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="district != null" >
+        district = #{district},
+      </if>
+      <if test="street != null" >
+        street = #{street},
+      </if>
+      <if test="address != null" >
+        address = #{address},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId},
+      </if>
+      <if test="sellerId != null" >
+        seller_id = #{sellerId},
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone = #{sellerTelephone},
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name = #{sellerCompanyName},
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id = #{warehouseId},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus},
+      </if>
+      <if test="shippingStatus != null" >
+        shipping_status = #{shippingStatus},
+      </if>
+      <if test="payStatus != null" >
+        pay_status = #{payStatus},
+      </if>
+      <if test="settleStatus != null" >
+        settle_status = #{settleStatus},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime},
+      </if>
+      <if test="shippingTime != null" >
+        shipping_time = #{shippingTime},
+      </if>
+      <if test="signTime != null" >
+        sign_time = #{signTime},
+      </if>
+      <if test="autoSignTime != null" >
+        auto_sign_time = #{autoSignTime},
+      </if>
+      <if test="settleTime != null" >
+        settle_time = #{settleTime},
+      </if>
+      <if test="shippingId != null" >
+        shipping_id = #{shippingId},
+      </if>
+      <if test="shippingName != null" >
+        shipping_name = #{shippingName},
+      </if>
+      <if test="payId != null" >
+        pay_id = #{payId},
+      </if>
+      <if test="payName != null" >
+        pay_name = #{payName},
+      </if>
+      <if test="invType != null" >
+        inv_type = #{invType},
+      </if>
+      <if test="invTypeName != null" >
+        inv_type_name = #{invTypeName},
+      </if>
+      <if test="orderNote != null" >
+        order_note = #{orderNote},
+      </if>
+      <if test="goodsAmount != null" >
+        goods_amount = #{goodsAmount},
+      </if>
+      <if test="orderAmount != null" >
+        order_amount = #{orderAmount},
+      </if>
+      <if test="payNo != null" >
+        pay_no = #{payNo},
+      </if>
+      <if test="needSettleAmount != null" >
+        need_settle_amount = #{needSettleAmount},
+      </if>
+      <if test="hasSettleAmount != null" >
+        has_settle_amount = #{hasSettleAmount},
+      </if>
+      <if test="taxRate != null" >
+        tax_rate = #{taxRate},
+      </if>
+
+      <if test="commissionRate != null" >
+        commission_rate = #{commissionRate},
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee = #{shippingFee},
+      </if>
+      <if test="sellerOrderNote != null" >
+        seller_order_note= #{sellerOrderNote},
+      </if>
+      <if test="parentOrderSn != null" >
+        parent_order_sn= #{parentOrderSn},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <select id="selectListByParam" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from epc_order
+    where is_deleted = 'N'
+      and shop_id = #{shopId}
+      <if test="orderStatusArray != null" >
+        and order_status in
+        <foreach item="item" index="index" collection="orderStatusArray" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+    order by gmt_create desc
+    <if test="startNum != null and pageSize != null">
+      limit #{startNum},#{pageSize}
+    </if>
+  </select>
+
+  <select id="selectListCountByParam" resultType="java.lang.Integer">
+    select count(1)
+    from epc_order
+    where is_deleted = 'N'
+      and shop_id = #{shopId}
+    <if test="orderStatusArray != null" >
+      and order_status in
+      <foreach item="item" index="index" collection="orderStatusArray" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+
+  <select id="selectByDO" resultMap="BaseResultMap"  parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderDO" >
+    select
+    <include refid="Base_Column_List" />
+    from epc_order
+    <where>
+      is_deleted = 'N'
+      <if test="creator != null" >
+        and creator = #{creator}
+      </if>
+      <if test="gmtCreate != null" >
+        and gmt_create = #{gmtCreate}
+      </if>
+      <if test="modifier != null" >
+        and modifier = #{modifier}
+      </if>
+      <if test="gmtModified != null" >
+        and gmt_modified = #{gmtModified}
+      </if>
+      <if test="shopId != null" >
+        and shop_id = #{shopId}
+      </if>
+      <if test="companyName != null" >
+        and company_name = #{companyName}
+      </if>
+      <if test="consignee != null" >
+        and consignee = #{consignee}
+      </if>
+      <if test="mobile != null" >
+        and mobile = #{mobile}
+      </if>
+      <if test="province != null" >
+        and province = #{province}
+      </if>
+      <if test="city != null" >
+        and city = #{city}
+      </if>
+      <if test="district != null" >
+        and district = #{district}
+      </if>
+      <if test="street != null" >
+        and street = #{street}
+      </if>
+      <if test="address != null" >
+        and address = #{address}
+      </if>
+      <if test="cityId != null" >
+        and city_id = #{cityId}
+      </if>
+      <if test="accountId != null" >
+        and account_id = #{accountId}
+      </if>
+      <if test="sellerId != null" >
+        and seller_id = #{sellerId}
+      </if>
+      <if test="sellerTelephone != null" >
+        and seller_telephone = #{sellerTelephone}
+      </if>
+      <if test="sellerCompanyName != null" >
+        and seller_company_name = #{sellerCompanyName}
+      </if>
+      <if test="warehouseId != null" >
+        and warehouse_id = #{warehouseId}
+      </if>
+      <if test="orderSn != null" >
+        and order_sn = #{orderSn}
+      </if>
+      <if test="orderStatus != null" >
+        and order_status = #{orderStatus}
+      </if>
+      <if test="shippingStatus != null" >
+        and shipping_status = #{shippingStatus}
+      </if>
+      <if test="payStatus != null" >
+        and pay_status = #{payStatus}
+      </if>
+      <if test="settleStatus != null" >
+        and settle_status = #{settleStatus}
+      </if>
+      <if test="payTime != null" >
+        and pay_time = #{payTime}
+      </if>
+      <if test="shippingTime != null" >
+        and shipping_time = #{shippingTime}
+      </if>
+      <if test="signTime != null" >
+        and sign_time = #{signTime}
+      </if>
+      <if test="autoSignTime != null" >
+        and auto_sign_time = #{autoSignTime}
+      </if>
+      <if test="settleTime != null" >
+        and settle_time = #{settleTime}
+      </if>
+      <if test="shippingId != null" >
+        and shipping_id = #{shippingId}
+      </if>
+      <if test="shippingName != null" >
+        and shipping_name = #{shippingName}
+      </if>
+      <if test="payId != null" >
+        and pay_id = #{payId}
+      </if>
+      <if test="payName != null" >
+        and pay_name = #{payName}
+      </if>
+      <if test="invType != null" >
+        and inv_type = #{invType}
+      </if>
+      <if test="invTypeName != null" >
+        and inv_type_name = #{invTypeName}
+      </if>
+      <if test="orderNote != null" >
+        and order_note = #{orderNote}
+      </if>
+      <if test="goodsAmount != null" >
+        and goods_amount = #{goodsAmount}
+      </if>
+      <if test="orderAmount != null" >
+        and order_amount = #{orderAmount}
+      </if>
+      <if test="payNo != null" >
+        and pay_no = #{payNo}
+      </if>
+      <if test="needSettleAmount != null" >
+        and need_settle_amount = #{needSettleAmount}
+      </if>
+      <if test="hasSettleAmount != null" >
+        and has_settle_amount = #{hasSettleAmount}
+      </if>
+      <if test="taxRate != null" >
+        and tax_rate = #{taxRate}
+      </if>
+
+      <if test="commissionRate != null" >
+        and commission_rate = #{commissionRate}
+      </if>
+      <if test="parentOrderSn != null" >
+        and parent_order_sn = #{parentOrderSn}
+      </if>
+    </where>
+  </select>
+
+  <select id="selectNeedAutoSignOrder" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from epc_order
+    where is_deleted = 'N'
+    and order_status = 3
+    and auto_sign_time BETWEEN #{startTime} AND #{endTime}
+  </select>
+
+</mapper>

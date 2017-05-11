@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- ========== uc dubbo 接口 ========== -->
+
+    <dubbo:reference interface="com.tqmall.ucenter.service.account.RpcAccountService"
+                     id="ucRpcAccountService" version="${dubbo.consume.uc.version}" check="true"/>
+
+    <dubbo:reference interface="com.tqmall.ucenter.service.shop.RpcShopInfoService"
+                     id="ucRpcShopInfoService" version="${dubbo.consume.uc.version}" check="true"/>
+
+    <dubbo:reference interface="com.tqmall.ucenter.service.shop.RpcShopService"
+                     id="ucRpcShopService" version="${dubbo.consume.uc.version}" check="true"/>
+
+    <dubbo:reference interface="com.tqmall.ucenter.service.address.RpcAddressService"
+                     id="ucRpcAddressService" version="${dubbo.consume.uc.version}" check="true"/>
+
+    <dubbo:reference interface="com.tqmall.ucenter.service.shoptag.RpcShopTagService"
+                     id="ucRpcShopTagService" version="${dubbo.consume.uc.version}" check="true"/>
+
+</beans>

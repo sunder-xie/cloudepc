@@ -1,0 +1,192 @@
+ul {
+    -webkit-padding-start: 0px;
+    margin-bottom: 0;
+}
+
+.content {
+    padding: 30px 0;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.main {
+    width: 88%;
+    text-align: left;
+    float: left;
+}
+
+.offer-select-type {
+    width: 100%;
+    height: 42px;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #ffffff;
+}
+
+.offer-select-type ul li {
+    width: 110px;
+    height: 35px;
+    font-size: 14px;
+    color: #797979;
+    text-align: center;
+    margin-top: 7px;
+    border-bottom: 1px solid #DDDDDD;
+    float: left;
+    cursor: pointer;
+    list-style: none;
+    font-weight: bold;
+}
+
+.offer-select-type ul li.current {
+    border-bottom: 2px solid #FE7A00;
+    color: #000000;
+}
+
+.offer-select-type ul li:hover {
+    border-bottom: 2px solid #FE7A00;;
+    opacity: 0.8;
+}
+
+.show-all-offer {
+    width: 70px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+    line-height: 28px;
+    border: 1px solid #ededed;
+    background: #F2F2F2;
+    float: right;
+    cursor: pointer;
+}
+
+.offer-search-button {
+    height: 30px;
+    margin-top: 5px;
+    line-height: 28px;
+    border-top: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    background: #F2F2F2;
+    float: right;
+    cursor: pointer;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.offer-search-in {
+    float: right;
+}
+
+.offer-search-input {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.offer-head {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+/*offer goods 相关样式*/
+.offer-base-info {
+    height: 40px;
+    border: 1px solid #EDEDED;
+}
+
+.offer-base-info > th {
+    text-align: left;
+    background: #F2F2F2;;
+}
+
+.offer-base-info > th > span {
+    margin-left: 20px;
+}
+
+.offer-goods-item {
+    border: 1px solid #EDEDED;
+}
+
+.offer-goods-item > td {
+    padding: 12px;
+}
+
+.goods-img-div{
+    float: left;
+    padding-right: 12px;
+    width: 30%;
+}
+.goods-img {
+    width: 100%;
+    border: 1px solid #EDEDED;
+    height: 87px;
+}
+
+.goods-detail {
+    text-align: left;
+    float: left;
+    width: 70%;
+}
+.goods-detail div{
+    text-align: left;
+}
+.goods-name{
+    font-size: 14px;
+    padding-bottom: 15px;
+    color: #647e84;
+}
+.oe-num{
+    padding-bottom: 15px;
+
+}
+
+/*template 样式*/
+.offer-btn {
+    width: 80px;
+    height: 30px;
+    margin: 0 auto;
+    color: #FFFFFF;
+    line-height: 28px;
+    border: 1px solid #EDEDED;
+    border-radius: 5px;
+    background: #FE7A00;
+    cursor: pointer;
+}
+
+/* 搜索相关样式 */
+.wish-show-all {
+    width: 70px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+    line-height: 28px;
+    border: 1px solid #ededed;
+    background: #F2F2F2;
+    float: right;
+    cursor: pointer;
+}
+
+.wish-search-button {
+    height: 30px;
+    margin-top: 5px;
+    line-height: 28px;
+    border-top: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    background: #F2F2F2;
+    float: right;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wish-search-div {
+    float: right;
+}
+
+.wish-search-input {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    margin-top: 5px;
+}

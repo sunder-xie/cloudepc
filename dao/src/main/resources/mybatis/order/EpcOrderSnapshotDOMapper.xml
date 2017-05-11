@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.order.EpcOrderSnapshotDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.order.EpcOrderSnapshotDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="consignee_name" property="consignee" jdbcType="VARCHAR" />
+    <result column="consignee_mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="consignee_province" property="province" jdbcType="INTEGER" />
+    <result column="consignee_city" property="city" jdbcType="INTEGER" />
+    <result column="consignee_district" property="district" jdbcType="INTEGER" />
+    <result column="consignee_street" property="street" jdbcType="INTEGER" />
+    <result column="consignee_address" property="address" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="seller_id" property="sellerId" jdbcType="INTEGER" />
+    <result column="seller_telephone" property="sellerTelephone" jdbcType="VARCHAR" />
+    <result column="seller_company_name" property="sellerCompanyName" jdbcType="VARCHAR" />
+    <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="TINYINT" />
+    <result column="shipping_status" property="shippingStatus" jdbcType="TINYINT" />
+    <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
+    <result column="settle_status" property="settleStatus" jdbcType="TINYINT" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="shipping_time" property="shippingTime" jdbcType="TIMESTAMP" />
+    <result column="sign_time" property="signTime" jdbcType="TIMESTAMP" />
+    <result column="auto_sign_time" property="autoSignTime" jdbcType="TIMESTAMP" />
+    <result column="settle_time" property="settleTime" jdbcType="TIMESTAMP" />
+    <result column="shipping_id" property="shippingId" jdbcType="INTEGER" />
+    <result column="shipping_name" property="shippingName" jdbcType="VARCHAR" />
+    <result column="pay_id" property="payId" jdbcType="INTEGER" />
+    <result column="pay_name" property="payName" jdbcType="VARCHAR" />
+    <result column="inv_type" property="invType" jdbcType="TINYINT" />
+    <result column="inv_type_name" property="invTypeName" jdbcType="VARCHAR" />
+    <result column="order_note" property="orderNote" jdbcType="VARCHAR" />
+    <result column="goods_amount" property="goodsAmount" jdbcType="DECIMAL" />
+    <result column="order_amount" property="orderAmount" jdbcType="DECIMAL" />
+    <result column="pay_no" property="payNo" jdbcType="VARCHAR" />
+    <result column="need_settle_amount" property="needSettleAmount" jdbcType="DECIMAL" />
+    <result column="has_settle_amount" property="hasSettleAmount" jdbcType="DECIMAL" />
+    <result column="tax_rate" property="taxRate" jdbcType="DECIMAL" />
+    <result column="commission_rate" property="commissionRate" jdbcType="DECIMAL" />
+    <result column="shipping_fee" property="shippingFee" jdbcType="DECIMAL" />
+    <result column="seller_order_note" property="sellerOrderNote" jdbcType="VARCHAR" />
+    <result column="parent_order_sn" property="parentOrderSn" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, shop_id, company_name, 
+    consignee_name, consignee_mobile, consignee_province, consignee_city, consignee_district,
+    consignee_street, consignee_address, city_id, account_id,
+    seller_id, seller_telephone, seller_company_name, warehouse_id, order_sn, order_status, 
+    shipping_status, pay_status, settle_status, pay_time, shipping_time, sign_time, auto_sign_time, 
+    settle_time, shipping_id, shipping_name, pay_id, pay_name, inv_type, inv_type_name, 
+    order_note, goods_amount, order_amount, pay_no, need_settle_amount, has_settle_amount, 
+    tax_rate, commission_rate, shipping_fee, seller_order_note, parent_order_sn
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_order_snapshot
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderSnapshotDO"
+          useGeneratedKeys="true" keyProperty="id">
+    insert into epc_order_snapshot
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="consignee != null" >
+        consignee_name,
+      </if>
+      <if test="mobile != null" >
+        consignee_mobile,
+      </if>
+      <if test="province != null" >
+        consignee_province,
+      </if>
+      <if test="city != null" >
+        consignee_city,
+      </if>
+      <if test="district != null" >
+        consignee_district,
+      </if>
+      <if test="street != null" >
+        consignee_street,
+      </if>
+      <if test="address != null" >
+        consignee_address,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone,
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name,
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="shippingStatus != null" >
+        shipping_status,
+      </if>
+      <if test="payStatus != null" >
+        pay_status,
+      </if>
+      <if test="settleStatus != null" >
+        settle_status,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="shippingTime != null" >
+        shipping_time,
+      </if>
+      <if test="signTime != null" >
+        sign_time,
+      </if>
+      <if test="autoSignTime != null" >
+        auto_sign_time,
+      </if>
+      <if test="settleTime != null" >
+        settle_time,
+      </if>
+      <if test="shippingId != null" >
+        shipping_id,
+      </if>
+      <if test="shippingName != null" >
+        shipping_name,
+      </if>
+      <if test="payId != null" >
+        pay_id,
+      </if>
+      <if test="payName != null" >
+        pay_name,
+      </if>
+      <if test="invType != null" >
+        inv_type,
+      </if>
+      <if test="invTypeName != null" >
+        inv_type_name,
+      </if>
+      <if test="orderNote != null" >
+        order_note,
+      </if>
+      <if test="goodsAmount != null" >
+        goods_amount,
+      </if>
+      <if test="orderAmount != null" >
+        order_amount,
+      </if>
+      <if test="payNo != null" >
+        pay_no,
+      </if>
+      <if test="needSettleAmount != null" >
+        need_settle_amount,
+      </if>
+      <if test="hasSettleAmount != null" >
+        has_settle_amount,
+      </if>
+      <if test="taxRate != null" >
+        tax_rate,
+      </if>
+      <if test="commissionRate != null" >
+        commission_rate,
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee,
+      </if>
+      <if test="sellerOrderNote != null" >
+        seller_order_note,
+      </if>
+      <if test="parentOrderSn != null" >
+        parent_order_sn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=INTEGER},
+      </if>
+      <if test="street != null" >
+        #{street,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerTelephone != null" >
+        #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCompanyName != null" >
+        #{sellerCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseId != null" >
+        #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="shippingStatus != null" >
+        #{shippingStatus,jdbcType=TINYINT},
+      </if>
+      <if test="payStatus != null" >
+        #{payStatus,jdbcType=TINYINT},
+      </if>
+      <if test="settleStatus != null" >
+        #{settleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingTime != null" >
+        #{shippingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signTime != null" >
+        #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="autoSignTime != null" >
+        #{autoSignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="settleTime != null" >
+        #{settleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingId != null" >
+        #{shippingId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingName != null" >
+        #{shippingName,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null" >
+        #{payId,jdbcType=INTEGER},
+      </if>
+      <if test="payName != null" >
+        #{payName,jdbcType=VARCHAR},
+      </if>
+      <if test="invType != null" >
+        #{invType,jdbcType=TINYINT},
+      </if>
+      <if test="invTypeName != null" >
+        #{invTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNote != null" >
+        #{orderNote,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsAmount != null" >
+        #{goodsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderAmount != null" >
+        #{orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payNo != null" >
+        #{payNo,jdbcType=VARCHAR},
+      </if>
+      <if test="needSettleAmount != null" >
+        #{needSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="hasSettleAmount != null" >
+        #{hasSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionRate != null" >
+        #{commissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingFee != null" >
+        #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="sellerOrderNote != null" >
+        #{sellerOrderNote,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrderSn != null" >
+        #{parentOrderSn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderSnapshotDO" >
+    update epc_order_snapshot
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        consignee_name = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        consignee_mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        consignee_province = #{province,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        consignee_city = #{city,jdbcType=INTEGER},
+      </if>
+      <if test="district != null" >
+        consignee_district = #{district,jdbcType=INTEGER},
+      </if>
+      <if test="street != null" >
+        consignee_street = #{street,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        consignee_address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerId != null" >
+        seller_id = #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerTelephone != null" >
+        seller_telephone = #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCompanyName != null" >
+        seller_company_name = #{sellerCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="shippingStatus != null" >
+        shipping_status = #{shippingStatus,jdbcType=TINYINT},
+      </if>
+      <if test="payStatus != null" >
+        pay_status = #{payStatus,jdbcType=TINYINT},
+      </if>
+      <if test="settleStatus != null" >
+        settle_status = #{settleStatus,jdbcType=TINYINT},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingTime != null" >
+        shipping_time = #{shippingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signTime != null" >
+        sign_time = #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="autoSignTime != null" >
+        auto_sign_time = #{autoSignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="settleTime != null" >
+        settle_time = #{settleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingId != null" >
+        shipping_id = #{shippingId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingName != null" >
+        shipping_name = #{shippingName,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null" >
+        pay_id = #{payId,jdbcType=INTEGER},
+      </if>
+      <if test="payName != null" >
+        pay_name = #{payName,jdbcType=VARCHAR},
+      </if>
+      <if test="invType != null" >
+        inv_type = #{invType,jdbcType=TINYINT},
+      </if>
+      <if test="invTypeName != null" >
+        inv_type_name = #{invTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNote != null" >
+        order_note = #{orderNote,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsAmount != null" >
+        goods_amount = #{goodsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderAmount != null" >
+        order_amount = #{orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payNo != null" >
+        pay_no = #{payNo,jdbcType=VARCHAR},
+      </if>
+      <if test="needSettleAmount != null" >
+        need_settle_amount = #{needSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="hasSettleAmount != null" >
+        has_settle_amount = #{hasSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null" >
+        tax_rate = #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionRate != null" >
+        commission_rate = #{commissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="sellerOrderNote != null" >
+        seller_order_note = #{sellerOrderNote,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrderSn != null" >
+        parent_order_sn = #{parentOrderSn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

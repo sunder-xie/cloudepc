@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- ========== athena dubbo接口 ========== -->
+    <!-- 金蝶：客户-->
+    <dubbo:reference id="torganizationRemoteService" interface="com.tqmall.redarrow.client.provider.TOrganizationRemoteService"
+                     version="${dubbo.consume.jindie.version}" url="${dubbo.jindie.url}" check="false" />
+    <!-- 金蝶：商品-->
+    <dubbo:reference id="ticItemRemoteService" interface="com.tqmall.redarrow.client.provider.TICItemRemoteService"
+                     version="${dubbo.consume.jindie.version}" url="${dubbo.jindie.url}" check="false" />
+    <!-- 金蝶：销售单-->
+    <dubbo:reference id="seOrderRemoteService" interface="com.tqmall.redarrow.client.provider.SEOrderRemoteService"
+                     version="${dubbo.consume.jindie.version}" url="${dubbo.jindie.url}" check="false" />
+    <!-- 金蝶：采购单-->
+    <dubbo:reference id="poOrderRemoteService" interface="com.tqmall.redarrow.client.provider.POOrderRemoteService"
+                     version="${dubbo.consume.jindie.version}" url="${dubbo.jindie.url}" check="false" />
+    <!-- 金蝶：入库单&&出库单-->
+    <dubbo:reference id="stockBillRemoteService" interface="com.tqmall.redarrow.client.provider.StockBillRemoteService"
+                     version="${dubbo.consume.jindie.version}" url="${dubbo.jindie.url}" check="false" />
+    <!-- 金蝶：发票-->
+    <dubbo:reference id="invoiceBillRemoteService" interface="com.tqmall.redarrow.client.provider.InvoiceBillRemoteService"
+                     version="${dubbo.consume.jindie.version}" url="${dubbo.jindie.url}" check="false" />
+
+
+</beans>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.order.EpcOrderExtendDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.order.EpcOrderExtendDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="shipping_company" property="shippingCompany" jdbcType="VARCHAR" />
+    <result column="shipping_no" property="shippingNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, order_id, order_sn, 
+    shipping_company, shipping_no
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_order_extend
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_order_extend
+    where id = #{id}
+  </delete>
+  <insert id="insertSelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderExtendDO" >
+    insert into epc_order_extend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+        gmt_create,
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="shippingCompany != null" >
+        shipping_company,
+      </if>
+      <if test="shippingNo != null" >
+        shipping_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="isDeleted != null" >
+        #{isDeleted},
+      </if>
+      <if test="creator != null" >
+        #{creator},
+      </if>
+        now(),
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn},
+      </if>
+      <if test="shippingCompany != null" >
+        #{shippingCompany},
+      </if>
+      <if test="shippingNo != null" >
+        #{shippingNo},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.order.EpcOrderExtendDO" >
+    update epc_order_extend
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier},
+      </if>
+        gmt_modified = now(),
+      <if test="orderId != null" >
+        order_id = #{orderId},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn},
+      </if>
+      <if test="shippingCompany != null" >
+        shipping_company = #{shippingCompany},
+      </if>
+      <if test="shippingNo != null" >
+        shipping_no = #{shippingNo},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <select id="selectByOrderSn" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from epc_order_extend
+    where order_sn = #{orderSn,jdbcType=VARCHAR}
+    and is_deleted = 'N'
+    limit 1
+  </select>
+
+</mapper>

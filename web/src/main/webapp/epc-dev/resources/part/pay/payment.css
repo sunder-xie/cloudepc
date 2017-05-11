@@ -1,0 +1,154 @@
+.cl{
+    overflow: hidden;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.ta-l{
+    text-align: left;
+}
+.ta-r{
+    text-align: right;
+}
+.w1000{
+    width: 1092px;
+}
+
+.content-wrapper{
+    margin: 32px auto 50px;
+}
+.content-wrapper h4{
+    font-size: 15px;
+}
+
+.pc-header{
+    padding-bottom: 28px;
+}
+.process{
+    height: 53px;
+}
+
+.order-select-payment{
+    border: 1px solid #ccc;
+}
+.order-pay-tips{
+    padding: 20px 40px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f2f2f2;
+}
+.order-pay-tips p{
+    margin-top: 10px;
+}
+.order-pay-tips .strong{
+    color: #ff7800;
+}
+.order-pay-tips em{
+    font-style: normal;
+    padding: 0 5px;
+}
+.order-pay-tips b{
+    color: #5fb5ef;
+}
+.offer-amount{
+    margin-left: 30px;
+}
+
+.zyy-bank-wrapper, .order-pay-select{
+    padding: 30px 40px 40px 40px;
+}
+
+.gj-logo{
+    background: url(/img/logo/logo_03.png) no-repeat;
+    width: 166px;
+    height: 56px;
+    cursor: pointer;
+}
+
+.purchase-tip{
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-left: 1px solid #ccc;
+    color: #666;
+}
+.purchase-step{
+    background: url(/img/order_pay_steps_3.png) no-repeat;
+    width: 547px;
+    height: 53px;
+    margin-top: 3px;
+}
+.purchase-title{
+    margin: 20px 0;
+    color: #4c4949;
+    font-weight: bold;
+    font-size: 16px !important;
+}
+.next-step{
+    background: #ff7800;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 8px 40px;
+}
+
+.zyy-bank-wrapper a{
+    text-decoration: none;
+}
+.zyy-bank-module, .payment-div{
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+}
+.zyy-bank-item {
+    display: inline;
+    float: left;
+    height: 37px;
+    width: 188px;
+    margin: 0 10px 10px 0;
+    border: 1px solid #dad9d4;
+    text-align: left !important;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+.zyy-bank-item-selected, .zyy-bank-item:hover {
+    border-color: #cd0006;
+    color: #333;
+}
+
+
+.pay-confirm-title{
+    text-align: left;
+    font-size: 16px;
+}
+.pay-confirm-content{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.pay-confirm-content p{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+.pay-confirm-btn a{
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    padding: 7px 15px;
+    border-radius: 8px;
+}
+.pay-complete{
+    background: #ff8c6f;
+}
+.pay-help{
+    background: #888;
+    margin-left: 20px;
+}

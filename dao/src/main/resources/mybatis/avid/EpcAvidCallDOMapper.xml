@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.avid.EpcAvidCallDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.avid.EpcAvidCallDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_tel" property="shopTel" jdbcType="VARCHAR" />
+    <result column="fill_in_person" property="fillInPerson" jdbcType="VARCHAR" />
+    <result column="fill_in_person_tel" property="fillInPersonTel" jdbcType="VARCHAR" />
+    <result column="receipt_address_id" property="receiptAddressId" jdbcType="INTEGER" />
+    <result column="original_car_name" property="originalCarName" jdbcType="VARCHAR" />
+    <result column="car_brand_id" property="carBrandId" jdbcType="INTEGER" />
+    <result column="car_series_id" property="carSeriesId" jdbcType="INTEGER" />
+    <result column="car_model_id" property="carModelId" jdbcType="INTEGER" />
+    <result column="car_power_id" property="carPowerId" jdbcType="INTEGER" />
+    <result column="car_year_id" property="carYearId" jdbcType="INTEGER" />
+    <result column="car_id" property="carId" jdbcType="INTEGER" />
+    <result column="car_vin" property="carVin" jdbcType="VARCHAR" />
+    <result column="is_modify_car" property="isModifyCar" jdbcType="TINYINT" />
+    <result column="invoice_type" property="invoiceType" jdbcType="TINYINT" />
+    <result column="order_remark" property="orderRemark" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="INTEGER" />
+    <result column="avid_call_status" property="avidCallStatus" jdbcType="TINYINT" />
+    <result column="cancel_reason" property="cancelReason" jdbcType="VARCHAR" />
+    <result column="turn_order_time" property="turnOrderTime" jdbcType="TIMESTAMP" />
+    <result column="wish_list_id" property="wishListId" jdbcType="INTEGER" />
+    <result column="offer_list_id" property="offerListId" jdbcType="INTEGER" />
+    <result column="turn_wish_time" property="turnWishTime" jdbcType="TIMESTAMP" />
+    <result column="modifier_name" property="modifierName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, creator, gmt_create, modifier, gmt_modified, city_id, city_name, 
+    shop_id, account_id, user_id, shop_name, shop_tel, fill_in_person, fill_in_person_tel, 
+    receipt_address_id, original_car_name, car_brand_id, car_series_id, car_model_id, 
+    car_power_id, car_year_id, car_id, car_vin, is_modify_car, invoice_type, order_remark, 
+    seller_id, avid_call_status, cancel_reason, turn_order_time, wish_list_id, offer_list_id,
+    turn_wish_time, modifier_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from epc_avid_call
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from epc_avid_call
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+          parameterType="com.tqmall.data.epc.bean.entity.avid.EpcAvidCallDO" >
+    insert into epc_avid_call
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="shopTel != null" >
+        shop_tel,
+      </if>
+      <if test="fillInPerson != null" >
+        fill_in_person,
+      </if>
+      <if test="fillInPersonTel != null" >
+        fill_in_person_tel,
+      </if>
+      <if test="receiptAddressId != null" >
+        receipt_address_id,
+      </if>
+      <if test="originalCarName != null" >
+        original_car_name,
+      </if>
+      <if test="carBrandId != null" >
+        car_brand_id,
+      </if>
+      <if test="carSeriesId != null" >
+        car_series_id,
+      </if>
+      <if test="carModelId != null" >
+        car_model_id,
+      </if>
+      <if test="carPowerId != null" >
+        car_power_id,
+      </if>
+      <if test="carYearId != null" >
+        car_year_id,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="carVin != null" >
+        car_vin,
+      </if>
+      <if test="isModifyCar != null" >
+        is_modify_car,
+      </if>
+      <if test="invoiceType != null" >
+        invoice_type,
+      </if>
+      <if test="orderRemark != null" >
+        order_remark,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="avidCallStatus != null" >
+        avid_call_status,
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason,
+      </if>
+      <if test="turnOrderTime != null" >
+        turn_order_time,
+      </if>
+      <if test="wishListId != null" >
+        wish_list_id,
+      </if>
+      <if test="offerListId != null" >
+        offer_list_id,
+      </if>
+      <if test="turnWishTime != null" >
+        turn_wish_time,
+      </if>
+      <if test="modifierName != null" >
+        modifier_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopTel != null" >
+        #{shopTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fillInPerson != null" >
+        #{fillInPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="fillInPersonTel != null" >
+        #{fillInPersonTel,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptAddressId != null" >
+        #{receiptAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="originalCarName != null" >
+        #{originalCarName,jdbcType=VARCHAR},
+      </if>
+      <if test="carBrandId != null" >
+        #{carBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="carSeriesId != null" >
+        #{carSeriesId,jdbcType=INTEGER},
+      </if>
+      <if test="carModelId != null" >
+        #{carModelId,jdbcType=INTEGER},
+      </if>
+      <if test="carPowerId != null" >
+        #{carPowerId,jdbcType=INTEGER},
+      </if>
+      <if test="carYearId != null" >
+        #{carYearId,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="carVin != null" >
+        #{carVin,jdbcType=VARCHAR},
+      </if>
+      <if test="isModifyCar != null" >
+        #{isModifyCar,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceType != null" >
+        #{invoiceType,jdbcType=TINYINT},
+      </if>
+      <if test="orderRemark != null" >
+        #{orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="avidCallStatus != null" >
+        #{avidCallStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cancelReason != null" >
+        #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="turnOrderTime != null" >
+        #{turnOrderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wishListId != null" >
+        #{wishListId,jdbcType=INTEGER},
+      </if>
+      <if test="offerListId != null" >
+        #{offerListId,jdbcType=INTEGER},
+      </if>
+      <if test="turnWishTime != null" >
+        #{turnWishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierName != null" >
+        #{modifierName},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.epc.bean.entity.avid.EpcAvidCallDO" >
+    update epc_avid_call
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopTel != null" >
+        shop_tel = #{shopTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fillInPerson != null" >
+        fill_in_person = #{fillInPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="fillInPersonTel != null" >
+        fill_in_person_tel = #{fillInPersonTel,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptAddressId != null" >
+        receipt_address_id = #{receiptAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="originalCarName != null" >
+        original_car_name = #{originalCarName,jdbcType=VARCHAR},
+      </if>
+      <if test="carBrandId != null" >
+        car_brand_id = #{carBrandId,jdbcType=INTEGER},
+      </if>
+      <if test="carSeriesId != null" >
+        car_series_id = #{carSeriesId,jdbcType=INTEGER},
+      </if>
+      <if test="carModelId != null" >
+        car_model_id = #{carModelId,jdbcType=INTEGER},
+      </if>
+      <if test="carPowerId != null" >
+        car_power_id = #{carPowerId,jdbcType=INTEGER},
+      </if>
+      <if test="carYearId != null" >
+        car_year_id = #{carYearId,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="carVin != null" >
+        car_vin = #{carVin,jdbcType=VARCHAR},
+      </if>
+      <if test="isModifyCar != null" >
+        is_modify_car = #{isModifyCar,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceType != null" >
+        invoice_type = #{invoiceType,jdbcType=TINYINT},
+      </if>
+      <if test="orderRemark != null" >
+        order_remark = #{orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        seller_id = #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="avidCallStatus != null" >
+        avid_call_status = #{avidCallStatus,jdbcType=TINYINT},
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="turnOrderTime != null" >
+        turn_order_time = #{turnOrderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wishListId != null" >
+        wish_list_id = #{wishListId,jdbcType=INTEGER},
+      </if>
+      <if test="offerListId != null" >
+        offer_list_id = #{offerListId,jdbcType=INTEGER},
+      </if>
+      <if test="turnWishTime != null" >
+        turn_wish_time = #{turnWishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierName != null" >
+        modifier_name = #{modifierName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getNewDataCount" parameterType="java.util.Date" resultType="java.lang.Long">
+    select count(id)
+    from epc_avid_call
+    where avid_call_status = 0
+    and is_deleted = 'N'
+    <if test="time != null">
+      and gmt_create >= #{time,jdbcType=TIMESTAMP}
+    </if>
+  </select>
+
+</mapper>

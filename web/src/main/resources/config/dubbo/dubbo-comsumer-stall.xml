@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- ========== stall dubbo 接口 ========== -->
+
+    <!-- 地区接口 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.common.AppRegionService"
+                     id="stallRegionService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!-- 短信接口 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.sms.AppSmsService"
+                     id="stallSmsService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!-- 云配商品dubbo接口 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.minitqmall.MiniGoodsService"
+                     id="stallMiniGoodsService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!-- 购物车 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.cart.RpcCartService"
+                     id="stallCartService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!-- 开放平台 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.openplatform.WishListService"
+                     id="stallWishListService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.openplatform.OfferListService"
+                     id="stallOfferListService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!-- 订单 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.order.OrderReadRpcService"
+                     id="stallOrderReadRpcService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!-- 支付 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.PaymentService"
+                     id="stallPaymentService" version="${dubbo.consume.stall.version}" check="true"/>
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.pay.WebOfferListPayService"
+                     id="stallWebOfferListPayService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!--  -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.carcategory.RpcCarService"
+                     id="stallRpcCarService" version="${dubbo.consume.stall.version}" check="true"/>
+
+
+    <!-- 商家信息查询服务 -->
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.openplatform.RpcSellerService"
+                     id="stallRpcSellerService" version="${dubbo.consume.stall.version}" check="true"/>
+
+    <!--用户信息查询，暂用作门店认证时查询-->
+    <dubbo:reference id="rpcUserService" interface="com.tqmall.tqmallstall.service.user.RpcUserService"
+                     version="${dubbo.consume.stall.version}"  check="true" />
+
+</beans>

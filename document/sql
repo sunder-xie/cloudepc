@@ -1,0 +1,35 @@
+CREATE TABLE `epc_page_uri` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `is_deleted` char(1) NOT NULL DEFAULT 'N' COMMENT '是否已删除 N:未删除，Y:删除',
+  `gmt_create` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '创建时间',
+  `gmt_modified` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '修改时间',
+  `page_uri` varchar(100) NOT NULL DEFAULT '' COMMENT '页面访问地址',
+  `need_guide` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '0:不需要引导 1:需要引导',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='页面地址表';
+
+CREATE TABLE `epc_user_pv_record` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `is_deleted` char(1) NOT NULL DEFAULT 'N' COMMENT '是否已删除 N:未删除，Y:删除',
+  `gmt_create` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '创建时间',
+  `gmt_modified` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '修改时间',
+  `page_uri_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'epc_page_uri主键id',
+  `user_mobile` varchar(11) NOT NULL DEFAULT '' COMMENT '用户手机号',
+  PRIMARY KEY (`id`),
+  KEY `idx_user_mobile` (`user_mobile`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='页面用户访问记录表（目前只记录需要引导的页面）';
+
+CREATE TABLE `epc_login_verify_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `is_deleted` char(1) NOT NULL DEFAULT 'N' COMMENT '是否删除',
+  `gmt_create` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '创建时间',
+  `gmt_modified` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '修改时间',
+  `creator` int(11) NOT NULL DEFAULT '0' COMMENT '创建人ID',
+  `modifier` int(11) NOT NULL DEFAULT '0' COMMENT '修改人ID',
+  `verify_mobile` char(11) NOT NULL COMMENT '验证手机号',
+  `verify_code` varchar(16) NOT NULL COMMENT '手机验证码',
+  `verify_status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '验证状态（0：未验证，1：验证成功，2：验证失败）',
+  `verify_time` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '验证时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户登陆手机验证码记录表';
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.epc.dao.mapper.wish.WishListCityConfDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.epc.bean.entity.wish.WishListCityConfDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, city_id, city_name
+  </sql>
+
+  <select id="checkCity" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select id
+    from wish_list_city_conf
+    where city_id = #{cityId}
+    and is_deleted = 'N'
+  </select>
+
+  <select id="getAllCity" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List"/>
+    from wish_list_city_conf
+    where is_deleted = 'N'
+  </select>
+
+</mapper>
